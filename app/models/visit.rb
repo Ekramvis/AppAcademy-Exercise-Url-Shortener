@@ -1,5 +1,5 @@
 class Visit < ActiveRecord::Base
   attr_accessible :timestamp
-  
-  belongs_top :short_url
+
+  belongs_to :short_url
 end
