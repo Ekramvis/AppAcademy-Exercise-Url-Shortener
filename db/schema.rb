@@ -11,43 +11,56 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506182323) do
+ActiveRecord::Schema.define(:version => 20130506205736) do
 
   create_table "comments", :force => true do |t|
-    t.integer "user_id"
-    t.integer "long_url_id"
-    t.string  "body"
+    t.integer  "user_id"
+    t.integer  "long_url_id"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "long_urls", :force => true do |t|
-    t.string "link"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "short_urls", :force => true do |t|
-    t.integer "long_url_id"
-    t.integer "user_id"
-    t.string  "link"
-    t.integer "visit_id"
+    t.integer  "long_url_id"
+    t.integer  "user_id"
+    t.string   "link"
+    t.integer  "visit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer "long_url_id"
-    t.integer "tag_id"
+    t.integer  "long_url_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string "username"
-    t.string "email"
+    t.string   "username"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "vists", :force => true do |t|
-    t.datetime "timestamp"
+  create_table "visits", :force => true do |t|
     t.integer  "user_id"
     t.integer  "short_url_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -49,6 +49,8 @@ else
   long_url_id = LongUrl.find_by_link(long_url)['id']
 end
 
+long_url = LongUrl.find_by_id(long_url_id)
+
 # write one comment
 puts "Add a comment"
 comment = gets.chomp
@@ -78,7 +80,15 @@ s.link = SecureRandom.urlsafe_base64
 s.long_url_id = long_url_id
 s.user_id = current_user.id
 s.save!
-# enter shortUrl, launch comments and then page
+
+#launch comments
+puts "comments for this link"
+long_url.comments.each do |comment|
+  puts comment.body
+end
+
+#then page
+Launchy.open(long_url.link)
 
 
 # -uses post/get httpRequests
