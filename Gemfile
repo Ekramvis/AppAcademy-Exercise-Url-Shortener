@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'pry-rails'
+gem 'launchy'
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
