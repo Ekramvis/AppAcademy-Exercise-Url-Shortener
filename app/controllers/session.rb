@@ -55,6 +55,7 @@ comment = gets.chomp
 c = Comment.new
 c.body = comment
 c.long_url_id = long_url_id
+puts "current_user.id is #{current_user.id}"
 c.user_id = current_user.id
 c.save!
 
@@ -69,8 +70,18 @@ tag_link = Tagging.new
 tag_link.tag_id = Tag.last.id
 tag_link.long_url_id = long_url_id
 tag_link.save!
-  # enter shortUrl, launch comments and then page
-  # -uses post/get httpRequests
-  # Query ShortUrl for # of visits
-  # Query ShortUrl for unique visits
+
+
+#generate shortUrl
+s = ShortUrl.new
+s.link = SecureRandom.urlsafe_base64
+s.long_url_id = long_url_id
+s.user_id = current_user.id
+s.save!
+# enter shortUrl, launch comments and then page
+
+
+# -uses post/get httpRequests
+# Query ShortUrl for # of visits
+# Query ShortUrl for unique visits
 
